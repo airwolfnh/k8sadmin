@@ -21,7 +21,7 @@ podTemplate(
                 sh "sed 's#APPVERSION#'$BUILDIMG'#' k8sadmin/Chart.yaml"
                 sh "sed 's#CHARTVERSION#'$BUILDIMG'#' k8sadmin/Chart.yaml"
                 sh "helm init --client-only --skip-refresh"
-                sh "helm upgrade --install k8sadmin k8sadmin/
+                sh "helm upgrade --install k8sadmin k8sadmin/"
             }
         }
     }
