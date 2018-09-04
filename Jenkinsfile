@@ -18,8 +18,8 @@ podTemplate(
         }
         stage ('Deploy') {
             container ('helm') {
-                sh "sed 's#APPVERSION#'$BUILDIMG'#' k8sadmin/Chart.yaml"
-                sh "sed 's#CHARTVERSION#'$BUILDIMG'#' k8sadmin/Chart.yaml"
+                sh "sed 's#APPVERSION#'$env.BUILD_NUMBER'#' k8sadmin/Chart.yaml"
+                sh "sed 's#CHARTVERSION#'$env.BUILD_NUMBER'#' k8sadmin/Chart.yaml"
                 sh "helm init --client-only --skip-refresh"
                 sh "helm upgrade --install k8sadmin k8sadmin/"
             }
